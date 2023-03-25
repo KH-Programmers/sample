@@ -8,7 +8,8 @@ import requests
 # Create your views here.
 def load(request) :
     content = foodGet()
-    return views.main(request, content)
+    title = "food"
+    return views.main(request, content, title)
 
 def foodGet() :
     date = datetime.today().strftime("%Y%m%d") 
