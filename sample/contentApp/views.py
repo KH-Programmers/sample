@@ -4,10 +4,10 @@ from .models import contentModel
 def indexView(request):
     content_list = contentModel.objects.all()
     var = { 'content_list' : content_list}
-    return render(request,'index.html',var)
+    return render(request,'contents/index.html',var)
 
 def contentView(request, content_id):
     content = get_object_or_404(contentModel,pk=content_id)
     var = {'Title': content.Title,
            'text' : content.text}
-    return render(request,'content.html',var)
+    return render(request,'contents/content.html',var)
