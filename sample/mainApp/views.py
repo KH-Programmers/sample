@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+def main(request, content, title):
+    cont = {
+        'title' : title,
+        'content' : content
+    }
 
-def main(request, content):
-    main = "<h1>main</h1>"
-    return HttpResponse(main+content)
+    return render(request,  "main.html", cont)
