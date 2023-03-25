@@ -7,4 +7,4 @@ def main(request, content, title):
         'content' : content
     }
 
-    return render(request,  "main.html", cont)
+    return render(request,  title+".html", cont)
