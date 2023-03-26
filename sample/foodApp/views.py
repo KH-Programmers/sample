@@ -8,7 +8,7 @@ import requests
 # Create your views here.
 def load(request) :
     content = foodGet()
-    title = "food"
+    title = "food/food"
     return views.main(request, content, title)
 
 def foodGet() :

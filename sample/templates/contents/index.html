@@ -1,9 +1,21 @@
-{% if content_list %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'main.html' %}
+    {% if content.content_list %}
     <ul>
-    {% for content in content_list %}
-        <li><a href="{% url 'content' content.id %}">{{ content.Title }}</a></li>
+    {% for c in content.content_list %}
+        <li><a href="{% url 'contentsApp:content' c.id %}">{{ c.Title }}</a></li>
     {% endfor %}
     </ul>
-{% else %}
+    {% else %}
     <p>Noting is available.</p>
-{% endif %}
+    {% endif %}
+</body>
+</html>
