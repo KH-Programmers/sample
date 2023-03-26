@@ -7,31 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-    {%include 'main.html'%}
+{% include 'main.html' %}
     {%block content%}
-<div class="container my-3">
-    <form method = "post" action = "{% url 'userPage:signup%}">
-        {% crsf_token %}
-        # error 메시지 추가해야 함
-        <div class = "mb-3">
-            <label for = "username">사용자 이름</label>
-            <input type = "text" class = "form-control" name = "username" id = "username" value = "{{ form.username.value | default_if_none:''}}">
-        </div>
-        <div class = "mb-3">
-            <label for = "password1">비밀번호</label>
-            <input type = "password" class = "form-control" name = "password1" id = "password1" value = "{{ form.password1.value | default_if_none:''}}">
-        </div>
-        <div class = "mb-3">
-            <label for = "password2">비밀번호 확인</label>
-            <input type = "password2" class = "form-control" name = "password2" id = "password2" value = "{{ form.password2.value | default_if_none:''}}">
-        </div>
-        <div class = "mb-3">
-            <label for = "password1">이메일</label>
-            <input type = "text" class = "form-control" name = "email" id = "email" value = "{{ form.email.value | default_if_none:''}}">
-        </div>
-        <button type = "submit" class="btn brn-primary">생성하기</button>
-    </form>
-</div>
-{%endblock%}
+    <div class="container my-3">
+        <form method = "post" action = "{% url 'userApp:signup'%}">
+            {% csrf_token %}
+            <!--error 메시지 추가해야 함-->
+            <div class = "mb-3">
+                <label for = "username">사용자 이름</label>
+                <input type = "text" class = "form-control" name = "username" id = "username" value = "{{ form.username.value | default_if_none:''}}">
+            </div>
+            <div class = "mb-3">
+                <label for = "password1">비밀번호</label>
+                <input type = "password" class = "form-control" name = "password1" id = "password1" value = "{{ form.password1.value | default_if_none:''}}">
+            </div>
+            <div class = "mb-3">
+                <label for = "password2">비밀번호 확인</label>
+                <input type = "password2" class = "form-control" name = "password2" id = "password2" value = "{{ form.password2.value | default_if_none:''}}">
+            </div>
+            <div class = "mb-3">
+                <label for = "password1">이메일</label>
+                <input type = "text" class = "form-control" name = "email" id = "email" value = "{{ form.email.value | default_if_none:''}}">
+            </div>
+            <button type = "submit" class="btn brn-primary">생성하기</button>
+        </form>
+    </div>
+    {%endblock%}
 </body>
 </html>
