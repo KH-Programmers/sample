@@ -1,3 +1,4 @@
 *.pyc
 /virt/
 myenv
+sample/db.sqlite3
