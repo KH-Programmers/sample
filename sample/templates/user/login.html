@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +9,6 @@
 <body>
     {% include 'main.html' %}
     {% block content %}
-=======
-{% block content %}
->>>>>>> 30b9d28800fdd86d54464482e6df5fefbae708de
 <div class="container my-3">
     <form method="post" action="{%url 'userApp:login'%}">
         {%csrf_token%}
@@ -28,10 +24,6 @@
         <button type="submit" class="btn btn-primary">로그인</button>
     </form>
 </div>
-<<<<<<< HEAD
 {%endblock%}
 </body>
 </html>
-=======
-{%endblock%}
->>>>>>> 30b9d28800fdd86d54464482e6df5fefbae708de
