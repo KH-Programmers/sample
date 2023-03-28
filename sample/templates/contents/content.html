@@ -8,7 +8,32 @@
 </head>
 <body>
   {% include 'main.html' %}
-  <h1>{{ content.Title }}</h1>
-  <p>{{ content.text }}</p>
+  {% load static %}
+  <div class="text-center">
+    <img src="{% static '/img/lion.png' %}" alt="..." width="85" height="125">
+  </div>
+  <div class="container">
+		<div class="row">
+				<table class="table table-striped" style="text-align:center; border:1px solid #dddddd">
+					<thead>
+						<tr>
+							<th colspan="5" style="background-color:#eeeeee; text-align: center;">{{ content.Title }}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="width: 20%;">작성자</td>
+							<td colspan="2">미정이요</td>
+							<td style="width: 20%;">작성일시</td>
+							<td colspan="2">미정이요</td>
+						</tr>
+						<tr>
+							<td colspan="4" style="height:200px; text-align: left;">{{content.text}}</td>
+						</tr>		
+					</tbody>
+				</table>
+        <a class="btn text-white" href="{% url 'contentsApp:index' %}" style="background-color: #9E1915">목록</a>
+		</div>
+	</div>
 </body>
 </html>
