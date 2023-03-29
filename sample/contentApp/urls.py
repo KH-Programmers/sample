@@ -11,6 +11,7 @@ urlpatterns = [
     path('', views.indexView, name='index'),
     # ex: /polls/5/
     path('<int:content_id>/', views.contentView, name='content'),
-
+    
     path('write/', views.contentWrite, name = "write")
+
 ]
