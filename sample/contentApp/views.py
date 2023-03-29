@@ -17,3 +17,7 @@ def contentView(request, content_id):
         }
     title = 'contents/content'
     return views.main(request, var ,title)
+
+def contentWrite(request):
+    title = 'contents/write'
+    return views.main(request, " ", title)
