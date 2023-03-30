@@ -4,7 +4,7 @@ from mainApp import views
 import datetime
 # Create your views here.
 def indexView(request):
-    content_list = contentModel.objects.all()
+    content_list = contentModel.objects.all().order_by("-id")
     var = { 'content_list' : content_list }
     title = 'contents/index'
     return views.main(request, var ,title)
@@ -27,5 +27,5 @@ def contentWrite(request):
         model.text = request.POST["text"]
         model.Title = request.POST["title"]
         model.save()
-        return redirect("conntentApp:index")
+        return redirect("contentApp:index")
     return views.main(request, " ", title)
