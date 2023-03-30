@@ -8,14 +8,33 @@
 </head>
 <body>
     {% include 'main.html' %}
-    {% if content.content_list %}
-    <ul>
-    {% for c in content.content_list %}
-        <li><a href="{% url 'contentsApp:content' c.id %}">{{ c.Title }}</a></li>
-    {% endfor %}
-    </ul>
-    {% else %}
-    <p>Noting is available.</p>
-    {% endif %}
+    {% load static %}
+    <div class="text-center">
+        <img src="{% static '/img/lion.png' %}" alt="..." width="85" height="125">
+    </div>
+    <div class="container">
+        <div class="row">
+            <table class="table table-striped" style=" margin-top: 50px; text-align:center; border:1px solid #dddddd">
+                <thead>
+                    <tr>
+                        <th style="background-color:#eeeeee; text-align: center;">번호</th>
+                        <th style="background-color:#eeeeee; text-align: center;">제목</th>
+                        <th style="background-color:#eeeeee; text-align: center;">작성자</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if content.content_list %}
+                    {% for c in content.content_list %}
+                    <tr class="odd gradeX">
+                        <td>{{ c.id }}</td>
+                        <td><a href="{% url 'contentsApp:content' c.id %}">{{ c.Title }}</a></td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                        <p>아직 작성된 글이 없습니다.</p>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
 </body>
 </html>
