@@ -27,9 +27,13 @@
               계정관리
             </a>
             <ul class="dropdown-menu">
+                {%if user.is_authenticated%}
+                      <li>환영합니다 {{ user.get_username }}</li>
+                {%else%}
                       <li><a class="dropdown-item" href="{% url 'userApp:login' %}">로그인</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="{% url 'userApp:signup' %}">회원가입</a></li>
+                {%endif%}
               </ul>
             </li>
           </ul>
