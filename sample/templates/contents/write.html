@@ -18,9 +18,10 @@
   </head>
   <body>
     {% include 'main.html' %}
+    {% load static %}
     <div class="text-center">
       <img
-        src="img/lion.png"
+        src="{% static '/img/lion.png' %}"
         class="rounded"
         alt="..."
         width="85"
@@ -29,7 +30,8 @@
     </div>
     <div class="container">
       <div class="row">
-        <form method="post" action="/ContentsCtrl?action=write">
+        <form method="post" action="">
+          {% csrf_token %}
           <table
             class="table table-striped"
             style="text-align: center; border: 1px solid #dddddd"
@@ -57,7 +59,7 @@
                 </td>
               </tr>
               <tr>
-                <td><textarea id="summernote" name="content"></textarea></td>
+                <td><textarea id="summernote" name="text"></textarea></td>
               </tr>
             </tbody>
           </table>
