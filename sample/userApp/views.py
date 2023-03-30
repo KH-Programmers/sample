@@ -1,6 +1,24 @@
+from django.http import HttpResponse
+from django.urls import reverse
+from mainApp import views
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from sample.forms import UserForm
+
+def login(request):
+    if request.method == "GET":
+        return views.main(request, '', 'user/login')
+    elif request.method =="post":
+        username = request.post["username"]
+        password = request.post["password"]
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return HttpResponse(reverse('mainApp:main'))
+        else:
+            return views.main(request, '', 'user/login')
+
 
 def signup(request):
     if request.method == "POST":
