@@ -18,10 +18,9 @@
   </head>
   <body>
     {% include 'main.html' %}
-    {% load static %}
     <div class="text-center">
       <img
-        src="{% static '/img/lion.png' %}"
+        src="img/lion.png"
         class="rounded"
         alt="..."
         width="85"
@@ -30,8 +29,7 @@
     </div>
     <div class="container">
       <div class="row">
-        <form method="post" action="">
-          {% csrf_token %}
+        <form method="post" action="/ContentsCtrl?action=write">
           <table
             class="table table-striped"
             style="text-align: center; border: 1px solid #dddddd"
@@ -59,7 +57,7 @@
                 </td>
               </tr>
               <tr>
-                <td><textarea id="summernote" name="text"></textarea></td>
+                <td><textarea id="summernote" name="content"></textarea></td>
               </tr>
             </tbody>
           </table>
@@ -76,7 +74,7 @@
 
     <script>
       $('#summernote').summernote({
-        placeholder: '글 내용',
+        placeholder: 'Hello stand alone ui',
         tabsize: 2,
         height: 120,
         toolbar: [
