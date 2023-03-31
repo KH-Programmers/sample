@@ -24,11 +24,16 @@
         <ul class="navbar-nav" >
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              계정관리
+              {%if user.is_authenticated%}
+              {{user.get_username}}
+              {%else%}
+              계정관리 
+              {%endif%}<!--커밋할파일-->
             </a>
             <ul class="dropdown-menu">
                 {%if user.is_authenticated%}
                       <li>환영합니다 {{ user.get_username }}</li>
+                      <li><a href="{% url 'userApp:logout'%}">로그아웃</a>
                 {%else%}
                       <li><a class="dropdown-item" href="{% url 'userApp:login' %}">로그인</a></li>
                       <li><hr class="dropdown-divider"></li>

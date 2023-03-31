@@ -14,7 +14,7 @@ def login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login_auth(request, user)
-            return render(request, 'main.html')
+            return redirect('/')
         else:
             return render(request, 'user/login.html')
     
@@ -29,8 +29,8 @@ def signup(request):
         user = authenticate(request, username=username, password=password)         
         if user is None:
             user = User.objects.create_user(username, email, password)
-            return render(request, 'main.html')
+            return redirect('/user/login')
         else:
-            return render(request, 'user/login.html')
+            return render(request, 'user/login.html') #커밋할파일
     else:
         return render(request, 'user/signup.html')
