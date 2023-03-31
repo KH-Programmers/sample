@@ -14,8 +14,13 @@ def login(request):
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
+<<<<<<< Updated upstream
             login(request, user)
             return HttpResponse(reverse('mainApp:main'))
+=======
+            login_auth(request, user)
+            return redirect('/')
+>>>>>>> Stashed changes
         else:
             return views.main(request, '', 'user/login')
 
