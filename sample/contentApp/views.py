@@ -19,6 +19,7 @@ def contentView(request, content_id):
     title = 'contents/content'
     return views.main(request, var ,title)
 
+#POST 요청 처리
 def contentWrite(request):
     title = 'contents/write'
     if request.method == "POST":
