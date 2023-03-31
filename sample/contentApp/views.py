@@ -29,5 +29,5 @@ def contentWrite(request):
         model.text = request.POST["text"]
         model.Title = request.POST["title"]
         model.save()
-        return redirect("contentApp:index")
+        return redirect("contentsApp:index")
     return views.main(request, " ", title)
