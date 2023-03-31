@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import contentModel
 from mainApp import views
 import datetime
+
 # Create your views here.
 def indexView(request):
     content_list = contentModel.objects.all().order_by("-id")
