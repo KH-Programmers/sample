@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>설문</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Jua', sans-serif;
+        font-size: 1.2em;
+      }
+      
+      #outside {
+        padding-top: 25px;
+        padding-bottom: 25px;
+      }
+      
+      h1 {
+        font-family: 'Jua', sans-serif;
+        font-size: 1.5em;
+        text-align: center;
+        text-transform: capitalize;
+      }
+      
+      form {
+        /* Just to center the form on the page */
+        margin: 0 auto;
+        width: 70%;
+        /* To see the limits of the form */
+        padding: 1em;
+        border: 5px solid #9E1915;
+        border-radius: 1em;
+        
+      }
+      #survey-form {
+        background-color: white;
+      }
+      
+      fieldset { 
+        border:3px solid #9E1915;
+        margin: 10px;
+       }
+      
+      legend {
+        font-weight: 700;
+      }
+      
+      
+      div + div {
+        margin-top: 1em;
+        }
+      
+      /* label {
+        /* To make sure that all label have the same size and are properly align */
+        /* display: inline-block; */
+        /* width: 80px; */
+        /* text-align: right; */
+      } */
+      
+      input, textarea {
+        /* To make sure that all text field have the same font settings
+           By default, textarea are set with a monospace font */
+        /* font: 1em sans-serif; */
+      
+        /* To give the same size to all text field */
+        width: 200px;
+      
+      /*   -moz-box-sizing: border-box;
+             box-sizing: border-box; */
+      
+        /* To harmonize the look & feel of text field border */
+        border: 1px solid #999;
+      }
+      input {
+        width: 90%;
+        height: 32px;
+        font-size: 15px;
+        border: 3px;
+        border-color: #9E1915;
+        border-style: solid;
+        border-radius: 15px;
+        outline: none;
+        padding-left: 10px;
+        background-color: rgb(233, 233, 233);
+      }
+      
+      input:focus, textarea:focus {
+        /* To give a little highligh on active elements */
+        border-color: OrangeRed;
+      }
+      
+      textarea {
+        /* To properly align multiline text field with their label */
+        vertical-align: top;
+      
+        /* To give enough room to type some text */
+        height: 5em;
+      
+        /* To allow users to resize any textarea vertically
+           It works only on Chrome, Firefox and Safari */
+        resize: vertical;
+      }
+      
+      .button {
+        /* To position the buttons to the same position of the text fields */
+        padding-left: 90px; /* same size as the label elements */
+      }
+      
+      button {
+        border: 0;
+        width: 200px;
+        margin: .5em;
+        font-size: 1em;
+        font-family: 'Jua', sans-serif;
+        text-transform: capitalize;
+        background-color: #9E1915;
+        color: white;
+        padding: 5px;
+        border-radius: 30px;
+        
+      }
+      
+      #submitbutton {
+        display: flex; 
+        justify-content: center;
+      }
+      
+      .selectBox {
+        position: relative;
+        width: 150px;
+        height: 35px;
+        border-radius: 4px;
+        border: 3px solid #9E1915;
+        display:inline;
+      }
+      .selectBox .select {
+        width: inherit;
+        height: inherit;
+        background: transparent;
+        border: 0 none;
+        outline: 0 none;
+        padding: 0 5px;
+        position: relative;
+        z-index: 3; // select가 위로 올라와야 함
+      }
+      .selectBox .select option {
+        background: #9E1915;
+        color: #fff;
+        padding: 3px 0;
+        font-size: 16px;
+      }
+      .selectBox .icoArrow {
+        position: absolute; 
+        top: 0; 
+        right: 0; 
+        z-index: 1; 
+        width: 35px; 
+        height: inherit;
+        border-left: 2px solid lightcoral;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .selectBox .icoArrow img {
+        width: 50%;
+        transition: .3s; // 부드럽게 회전
+      }
+      
+      .selectBox .select:focus + .icoArrow img {
+        transform: rotate(180deg);
+      }
+
+      textarea {
+        width: 98%;
+        height: 300px;
+        font-size: 15px;
+        border: 3px;
+        border-color: #9E1915;
+        border-style: solid;
+        border-radius: 15px;
+        outline: none;
+        padding-left: 10px;
+        background-color: rgb(233, 233, 233);
+      }
+      
+</style>
+<script>
+    function clickEvent(){
+        alert('제출 완료!\n건의해주셔서 감사합니다');
+    }
+</script>
+<div id="outside">
+<form id="survey-form" method="Post">
+    {% csrf_token %}
+  <h1 id="title">홈페이지 건의사항</h1>
+  <p id="description"><b>주의:</b> 장난으로 작성하는 경우에는 불이익이 있을 수 있습니다</p>
+  
+  <!-- ------------------ 신청자 정보 ---------------------------- -->
+  <fieldset>
+    <!-- groups of widgets that share the same purpose, for styling and semantic purposes -->
+    <legend>신청자 정보</legend>
+    <!-- formally describes the purpose of the fieldset it is included inside. -->
+    <div>
+      <label id="name-label" for="name">이름:</label>
+      <input type="text" required id="name" name="name" placeholder="ex)홍길동">   </div>
+
+    <div>
+      <label id="number-label" for="number">학번:</label>
+      <input type="text" required id="number" name="number" placeholder="ex)10101">   </div>
+  </fieldset>
+ 
+  <!-- ----------------- 건의 유형 --------------------------------- -->
+  
+  <fieldset>
+    <div style="margin-top:13px;">
+      <label for="politics">건의 유형:</label>
+      <div class="selectBox">
+      <select id="report_type" name="report_type" class ="select">
+  <option value="bug_report">버그 신고</option>
+  <option value="new_idea">새로운 기능 건의</option>
+  <option value="bad_user">악성유저 신고</option>
+  </select>
+</div>
+</div>
+  </fieldset>
+
+  <!-- --------------------Text Areas------------------------------ -->
+  
+  <fieldset>
+    <legend>세부사항</legend>
+    <div>
+      <label for="msg"></label>
+      <p> 건의내용</p>
+      <textarea id="msg" name="msg" required rows="4" cols="100" placeholder="이곳에 입력하세요(최대 100자)"></textarea>   </div>
+ 
+  </fieldset>
+
+  <div id="submitbutton">
+    <button type="submit" id="submit" onclick=clickEvent();>제출</button>   </div>
+
+</form>
+  </div>

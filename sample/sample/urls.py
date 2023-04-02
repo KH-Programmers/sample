@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('contents/',include('contentApp.urls')),
     path('user/', include('userApp.urls')),
-    path('', include('foodApp.urls'))
+    path('', include('foodApp.urls')),
+    path('survey/', include('surveyApp.urls'))
 ]
