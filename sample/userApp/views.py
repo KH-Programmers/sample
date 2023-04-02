@@ -1,9 +1,10 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from django.contrib.auth import login as login_auth
+from django.contrib.auth import login as login_auth,get_user_model
 from sample.forms import UserForm
+from .models import Profile
 
 def login(request):
     if request.method == "GET":
@@ -34,3 +35,8 @@ def signup(request):
             return render(request, 'user/login.html') #커밋할파일
     else:
         return render(request, 'user/signup.html')
+
+    
+def people(request, username): 
+    person = get_object_or_404(get_user_model(), username=username)
+    return render(request, 'user/people.html', {'person': person})
