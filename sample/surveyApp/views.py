@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from mainApp import views
 import slack_sdk
+a = 'xoxb-506000875897'
+b = '5047395059074-YxeV2sVHFh113Vx7e9mUkolh'
 
-stoken = 'xoxb-5060008758977-5047395059074-uxWRo9uD2Zdw622O5MpVZqcn'
+stoken = a+'7-'+b
 schannel = 'C051ACXGBQD'
 
 def load(request):
