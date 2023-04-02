@@ -195,6 +195,7 @@
         alert('제출 완료!\n건의해주셔서 감사합니다');
     }
 </script>
+{% include 'main.html' %}
 <div id="outside">
 <form id="survey-form" method="Post">
     {% csrf_token %}
@@ -233,10 +234,9 @@
   <!-- --------------------Text Areas------------------------------ -->
   
   <fieldset>
-    <legend>세부사항</legend>
+    <legend>건의내용</legend>
     <div>
       <label for="msg"></label>
-      <p> 건의내용</p>
       <textarea id="msg" name="msg" required rows="4" cols="100" placeholder="이곳에 입력하세요(최대 100자)"></textarea>   </div>
  
   </fieldset>
