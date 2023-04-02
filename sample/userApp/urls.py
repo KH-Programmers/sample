@@ -7,5 +7,6 @@ app_name = 'userApp'
 urlpatterns = [
     path('login/', views.login, name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
-    path('signup/', views.signup, name="signup")
+    path('signup/', views.signup, name="signup"),
+    path('<str:username>/', views.people, name="people"),
 ]
